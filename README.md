@@ -21,6 +21,13 @@ docker compose up
 ```
 ***
 
+### Use composer
+Run the command
+```
+composer install
+```
+***
+
 ## Access the interface
 Go to a browser and enter http://localhost:8000/
 ***

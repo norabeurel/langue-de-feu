@@ -10,7 +10,7 @@ $langueDeFeu->execute();
   <title>Traducteur de mots en louchebem</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Traducteur louchebem gratuit : traduisez vos mots et expressions en louchebem, l'argot traditionnel des bouchers français, rapidement et simplement en ligne.">
+  <meta name="description" content="Traducteur langue de feu gratuit : traduisez vos mots et expressions en langue de feu, rapidement et simplement en ligne.">
   <meta name="robots" content="index, follow" />
   <link href="assets/reset.css" rel="stylesheet">
   <link href="assets/style.css?version=1.0.0" rel="stylesheet">
