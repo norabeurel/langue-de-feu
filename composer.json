@@ -1,0 +1,29 @@
+{
+  "name": "norabeurel/langue-de-feu",
+  "type": "project",
+  "description": "Un traducteur de mots en langue de feu",
+  "keywords": [
+    "langue de feu",
+    "traduction",
+    "langage",
+    "traducteur"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nora Beurel",
+      "email": "nora.beurel@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "LangueDeFeu\\": "src" }
+  },
+  "require": {
+    "php": ">=8.3 <9.0",
+    "vanderlee/syllable": "1.9.0"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^6.4",
+    "symfony/debug-bundle": "^6.4"
+  }
+}

@@ -1,0 +1,13 @@
+services:
+  langue-de-feu-php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: langue-de-feu
+    user: 1000:1000
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: php -S 0.0.0.0:8000 -t /app/public

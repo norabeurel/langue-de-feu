@@ -1,0 +1,7 @@
+services:
+  louchebem-prod-php:
+    build: .
+    container_name: louchebem-prod
+    ports:
+      - "9257:8000"
+
