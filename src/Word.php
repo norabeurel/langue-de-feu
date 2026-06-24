@@ -2,9 +2,6 @@
 
 namespace LangueDeFeu;
 
-use Vanderlee\Syllable\Syllable;
-use Vanderlee\Syllable\Hyphen;
-
 class Word
 {
 
@@ -22,8 +19,17 @@ class Word
   /**
    * @var array
    */
-  protected array $vowel = array('a', 'à', 'â', 'e', 'é', 'è', 'ê', 'ë', 'i', 'î', 'ï', 'o', 'ô', 'u', 'ù', 'û', 'ü', 'y', 'ÿ', 'œ');
-  protected array $groupVowel = array('aa', 'ae', 'ai', 'ao', 'au', 'ay', 'ea', 'ee', 'ei', 'eo', 'eu', 'ey', 'ia', 'ie', 'ii', 'io', 'iu', 'iy', 'oa', 'oe', 'oi', 'oo', 'ou', 'oy', 'ua', 'ue', 'ui', 'uo', 'uu', 'uy', 'ya', 'ye', 'yi', 'yo', 'yu', 'yy', 'eau', 'ieu', 'oie', 'oui', 'aie', 'eui', 'uai', 'ueu', 'aou', 'ioe', 'iou', 'aea', 'aee', 'aei', 'aeo', 'aeu', 'ayo', 'eai', 'eeu', 'eoi', 'eou', 'iai', 'iau', 'iee', 'iei', 'ioi', 'oai', 'oei', 'oeu', 'oua', 'oue', 'uya', 'an', 'en', 'un', 'am', 'ain', 'em', 'um', 'in', 'on', 'om', 'im', );
+  protected array $nasalVowels = array('ain','aim','ein','eim','oin','ien','ion','yon','aon','ean','an','en','on','in','un','am','em','om','im','um','yn','ym');
+
+  /**
+   * @var array
+   */
+  protected array $groupVowels = array('eau','ieu','oie','oui','aie','eui','uai','ueu','aou','oeu','eai','ai','au','ay','ei','eu','ey','ou','oi','oy','ui','ue','ua','ia','ie','io','ya','ye','yo','oe','œu','œ','æ');
+
+  /**
+   * @var array
+   */
+  protected array $vowels = array('a', 'à', 'â', 'ä', 'e', 'é', 'è', 'ê', 'ë', 'i', 'î', 'ï', 'o', 'ô', 'ö', 'u', 'ù', 'û', 'ü', 'y', 'ÿ',);
 
   /**
    * Construct Word
@@ -53,7 +59,6 @@ class Word
     return $this;
   }
 
-
   /**
    * @return string|null
    */
@@ -73,18 +78,35 @@ class Word
     return $this;
   }
 
-  /**
-   *
-   * @return string
-   */
+  protected function sortByLength(array $items): array
+  {
+    usort($items, static fn($a, $b) => strlen($b) <=> strlen($a));
+    return $items;
+  }
+
+  protected function buildAlternation(array $items): string
+  {
+    $escaped = array_map(static fn($v) => preg_quote($v, '/'), $items);
+    return implode('|', $escaped);
+  }
+
   protected function wordTransform(): string
   {
-    $word = $this->word;
+    $vowelChars = 'aàâäeéèêëiîïoôöuùûüyÿAÀÂÄEÉÈÊËIÎÏOÔÖUÙÛÜYŸ';
+    $denasalLookahead = '(?![' . $vowelChars . 'nmNM])';
 
+    $nasalAlt = $this->buildAlternation($this->sortBylength($this->nasalVowels));
+    $nasalBranch = '(?:' . $nasalAlt . ')' . $denasalLookahead;
 
-    $wordTransform = $word;
+    $oral = $this->sortByLength(array_merge($this->groupVowels, $this->vowels));
+    $oralBranch = $this->buildAlternation($oral);
 
-    return $wordTransform;
+    $pattern = '/(' . $nasalBranch . '|' . $oralBranch . ')/iu';
 
+    return preg_replace_callback($pattern, static function ($m) {
+      $charF = ctype_upper($m[0]) ? "F" : "f";
+      return $m[1] . $charF . $m[1];
+    }, $this->word);
   }
+
 }

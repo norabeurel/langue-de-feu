@@ -22,7 +22,7 @@ body {
 }
 
 .header {
-  background-color: #45ac89;
+  background-color: rgb(10 139 227 / 0.49);
   height: 125px;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ body {
   text-align: center;
   font-family: "Chango", sans-serif;
   font-size: 45px;
-  text-shadow: 5px 5px 5px #227759;
+  text-shadow: 5px 5px 5px #0A8BE3FF;
   margin: 0;
 }
 .explanation-container {
@@ -43,10 +43,10 @@ body {
   flex-direction: column;
   align-items: normal;
   align-content: normal;
-  border: solid 4px #1b7157;
+  border: solid 4px #045995;
   border-radius: 10px;
   padding: 40px;
-  background-color: rgb(219 255 243 / 0.78);
+  background-color: rgb(188 227 255 / 0.76);
 
 }
 
@@ -96,6 +96,11 @@ body {
   width: 1000px;
 }
 
+.form {
+  width: 100%;
+  max-width: 600px;
+}
+
 .missing-value {
   color: #aa0000;
   font-size: 15px;
@@ -109,13 +114,6 @@ body {
   width: 100%;
 }
 
-.terminaison-input {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-top: 30px;
-}
-
 .label {
   font-size: 20px;
   width: 100%;
@@ -126,7 +124,7 @@ body {
   margin : 10px 0 2px 0;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 0 1px #1b7157;
+  box-shadow: 0 0 0 1px #000000;
   border: none;
   resize: vertical;
   transition-property: box-shadow;
@@ -134,28 +132,10 @@ body {
 }
 
 .textarea:hover {
-  box-shadow: 0 0 0 3px #45ac89;
+  box-shadow: 0 0 0 3px rgb(2 94 156 / 0.49);
 }
 
-.select {
-  width: 100%;
-  height: 50px;
-  margin : 10px 0 2px 0;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px #1b7157;
-  border: none;
-  transition-property: box-shadow;
-  transition-duration: 400ms;
-}
-
-.select:hover {
-  box-shadow: 0 0 0 3px #45ac89;
-}
-
-.error .textarea,
-.error .select {
+.error .textarea {
   box-shadow: 0 0 0 1px #aa0000;
 }
 
@@ -170,10 +150,10 @@ body {
 .send-button {
   width: 150px;
   height: 35px;
-  background-color: #7ad8b8;
+  background-color: rgb(156 217 255);
   text-align: center;
   color: black;
-  border: solid 2px #1b7157;
+  border: solid 2px #000000;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 20px;
@@ -188,7 +168,7 @@ body {
 }
 
 .send-button:hover {
-  background-color: #a5e6d0;
+  background-color: rgb(156 217 255 / 0.57);
 }
 
 .response-container {
@@ -199,7 +179,7 @@ body {
   justify-content: center;
   flex: 1;
   margin: 20px 0;
-  border: solid 3px #1b7157;
+  border: solid 3px #045995;
   border-radius: 10px;
   padding: 40px;
   position:relative;
@@ -228,7 +208,7 @@ body {
 }
 
 .footer {
-  background-color: #45ac89;
+  background-color: rgb(10 139 227 / 0.49);
   width:100%;
   height: 125px;
   display: flex;
@@ -259,6 +239,17 @@ body {
   right: 0;
   transition-property: fill;
   transition-duration: 800ms;
+}
+
+.github-logo:hover {
+  fill: #ffffff;
+}
+
+.louchebem-link {
+  display: flex;
+  position: absolute;
+  padding: 10px;
+  left: 0;
 }
 
 .copy-button {
@@ -305,19 +296,15 @@ body {
   color: #aa0000;
 }
 
-.github-logo:hover {
-  fill: #ffffff;
-}
-
 a {
   text-decoration: underline;
   color: #03231a;
-  transition: text-decoration 4s, color 4s;
+  transition: text-decoration 4s, color 250ms;
 }
 
 a:hover {
   text-decoration: none;
-  color: #347860;
+  color: rgb(10 86 227 / 0.57);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {

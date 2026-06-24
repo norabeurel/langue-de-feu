@@ -3,7 +3,6 @@
 namespace LangueDeFeu;
 use LangueDeFeu\Request;
 use LangueDeFeu\Word;
-use Vanderlee\Syllable\Syllable;
 
 class LangueDeFeu
 {
@@ -29,7 +28,6 @@ class LangueDeFeu
   public function __construct()
   {
     $this->request = new Request();
-    Syllable::setCacheDir(__DIR__ . '/../cache');
   }
 
   /**
