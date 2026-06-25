@@ -7,10 +7,10 @@ $langueDeFeu->execute();
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Traducteur de mots en langue de feu</title>
+  <title>Traducteur de mots en langue de feu/gueux</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Traducteur langue de feu gratuit : traduisez vos mots et expressions en langue de feu, rapidement et simplement en ligne.">
+  <meta name="description" content="Traducteur langue de feu/gueux gratuit : traduisez vos mots et expressions en langue de feu/gueux, rapidement et simplement en ligne.">
   <meta name="robots" content="index, follow" />
   <link href="assets/reset.css" rel="stylesheet">
   <link href="assets/style.css?version=1.0.1" rel="stylesheet">
@@ -24,7 +24,7 @@ $langueDeFeu->execute();
 <body>
   <header class="header">
     <div class="margin-auto width-container">
-      <h1 class="title-1">Traducteur de mots en langue de feu</h1>
+      <h1 class="title-1">Traducteur de mots en langue de feu/gueux</h1>
     </div>
   </header>
 

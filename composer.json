@@ -1,9 +1,10 @@
 {
   "name": "norabeurel/langue-de-feu",
   "type": "project",
-  "description": "Un traducteur de mots en langue de feu",
+  "description": "Un traducteur de mots en langue de feu/gueux",
   "keywords": [
     "langue de feu",
+    "langue de gueux",
     "traduction",
     "langage",
     "traducteur"
