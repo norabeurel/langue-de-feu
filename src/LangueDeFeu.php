@@ -15,6 +15,11 @@ class LangueDeFeu
   /**
    * @var array
    */
+  protected array $terminaisons;
+
+  /**
+   * @var array
+   */
   protected array $words = array();
 
   /**
@@ -28,6 +33,10 @@ class LangueDeFeu
   public function __construct()
   {
     $this->request = new Request();
+    $this->terminaisons = array(
+      "f"     => "f (langue de feu)",
+      "g"     => "g (langue de gueux)",
+    );
   }
 
   /**
@@ -40,6 +49,10 @@ class LangueDeFeu
       if(!$this->request->getValueByFieldname('word'))
       {
         $this->addError("word", "Cette valeur est requise !!!");
+      }
+      if(!$this->request->getValueByFieldname('terminaison'))
+      {
+        $this->addError("terminaison", "Cette valeur est requise !!!");
       }
 
       if(count($this->errors) <= 0)
@@ -63,6 +76,21 @@ class LangueDeFeu
     return $this->request;
   }
 
+  public function getTerminaisons(): array
+  {
+    return $this->terminaisons;
+  }
+
+  /**
+   * @param array $terminaisons
+   *
+   * @return $this
+   */
+  public function setTerminaisons(array $terminaisons): LangueDeFeu
+  {
+    $this->terminaisons = $terminaisons;
+    return $this;
+  }
 
   /**
    * @param string $word
@@ -71,7 +99,7 @@ class LangueDeFeu
    */
   public function addWord(string $word): LangueDeFeu
   {
-    $this->words[] = new Word($word);
+    $this->words[] = new Word($word, $this->request->getValueByFieldname("terminaison"));
     return $this;
   }
 

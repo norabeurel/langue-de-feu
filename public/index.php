@@ -46,6 +46,16 @@ $langueDeFeu->execute();
             <textarea class="textarea" name="word" id="word"><?php echo $langueDeFeu->getRequest()->getValueByFieldname('word') ?></textarea>
             <div class="missing-value"><?php echo $langueDeFeu->getErrorByFieldname("word") ?></div>
           </div>
+          <div class="terminaison-input  <?php echo ($langueDeFeu->getErrorByFieldname("terminaison")) ? "error" : "" ?>">
+            <label for="terminaison-select" class="label">Choisissez une terminaison:</label>
+            <select class="select" name="terminaison" id="terminaison-select">
+              <option value="">--veuillez choisir--</option>
+              <?php foreach ($langueDeFeu->getTerminaisons() as $key => $terminaison) : ?>
+                <option <?php echo ($langueDeFeu->getRequest()->getValueByFieldname('terminaison') === $key) ? "selected" : "" ?> value="<?php echo $key ?>"><?php echo $terminaison ?></option>
+              <?php endforeach;?>
+            </select>
+            <div class="missing-value"><?php echo $langueDeFeu->getErrorByFieldname("terminaison") ?></div>
+          </div>
           <button class="send-button" type="submit">Envoyer</button>
         </form>
       </div>

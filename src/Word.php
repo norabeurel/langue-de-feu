@@ -10,6 +10,10 @@ class Word
    */
   protected string $word;
 
+  /**
+   * @var string
+   */
+  protected string $terminaison;
 
   /**
    * @var string|null
@@ -34,9 +38,10 @@ class Word
   /**
    * Construct Word
    */
-  public function __construct(string $word)
+  public function __construct(string $word, string $terminaison)
   {
     $this->word = $word;
+    $this->terminaison = $terminaison;
     $this->wordTransform = $this->wordTransform();
   }
 
@@ -58,6 +63,25 @@ class Word
     $this->word = $word;
     return $this;
   }
+
+/**
+ * @return string
+ */
+public function getTerminaison(): string
+{
+  return $this->terminaison;
+}
+
+/**
+ * @param string $terminaison
+ *
+ * @return $this
+ */
+public function setTerminaison(string $terminaison): Word
+{
+  $this->terminaison = $terminaison;
+  return $this;
+}
 
   /**
    * @return string|null
@@ -103,9 +127,17 @@ class Word
 
     $pattern = '/(' . $nasalBranch . '|' . $oralBranch . ')/iu';
 
-    return preg_replace_callback($pattern, static function ($m) {
-      $charF = ctype_upper($m[0]) ? "F" : "f";
-      return $m[1] . $charF . $m[1];
+    $terminaison = $this->terminaison;
+
+    return preg_replace_callback($pattern, static function ($m) use ($terminaison){
+      if ($terminaison == "f") {
+        $char = ctype_upper($m[0]) ? "F" : "f";
+      }
+      else{
+        $char = ctype_upper($m[0]) ? "G" : "g";
+      }
+      return $m[1] . $char . $m[1];
+
     }, $this->word);
   }
 
