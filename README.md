@@ -29,7 +29,7 @@ composer install
 ***
 
 ## Access the interface
-Go to a browser and enter http://localhost:8000/
+Go to a browser and enter http://localhost:8001/
 ***
 
 ## Credits
