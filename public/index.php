@@ -13,7 +13,7 @@ $langueDeFeu->execute();
   <meta name="description" content="Traducteur langue de feu gratuit : traduisez vos mots et expressions en langue de feu, rapidement et simplement en ligne.">
   <meta name="robots" content="index, follow" />
   <link href="assets/reset.css" rel="stylesheet">
-  <link href="assets/style.css?version=1.0.0" rel="stylesheet">
+  <link href="assets/style.css?version=1.0.1" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chango&family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
