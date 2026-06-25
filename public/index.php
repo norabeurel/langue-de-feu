@@ -7,7 +7,7 @@ $langueDeFeu->execute();
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Traducteur de mots en louchebem</title>
+  <title>Traducteur de mots en langue de feu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Traducteur langue de feu gratuit : traduisez vos mots et expressions en langue de feu, rapidement et simplement en ligne.">
