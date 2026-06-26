@@ -206,8 +206,7 @@ body {
 .response{
   display: flex;
   flex-direction: column;
-  margin-right: auto;
-  margin-bottom: auto;
+  width: 100%;
 }
 .response-title-container {
   margin-bottom: 10px;
@@ -263,10 +262,11 @@ body {
   fill: #ffffff;
 }
 
-.louchebem-link {
+.websites-link-container {
   display: flex;
   position: absolute;
   padding: 10px;
+  gap: 10px;
   left: 0;
 }
 
